@@ -1,10 +1,9 @@
 const { products } = require("../db");
+const { productsSchema } = require("../schemas");
 
 const productsRoutes = (fastify, options, done) => {
-  fastify.get("/products", (req, res) => {
-    res.send({
-      data: products,
-    });
+  fastify.get("/products", productsSchema, (req, res) => {
+    res.send(products);
   });
 
   fastify.get("/products/:id", (req, res) => {
