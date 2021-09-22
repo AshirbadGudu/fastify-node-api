@@ -1,3 +1,5 @@
+const { getProducts } = require("../controllers");
+
 const productsSchema = {
   schema: {
     response: {
@@ -14,6 +16,7 @@ const productsSchema = {
       },
     },
   },
+  handler: getProducts,
 };
 
 module.exports = productsSchema;
