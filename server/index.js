@@ -6,6 +6,15 @@ const fastify = require("fastify")({
 
 const PORT = process.env.PORT || 5000;
 
+fastify.register(require("fastify-swagger"), {
+  exposeRoute: true,
+  routePrefix: "/",
+  swagger: {
+    info: {
+      title: "Fastify API",
+    },
+  },
+});
 fastify.register(productsRoutes);
 
 const start = async () => {
